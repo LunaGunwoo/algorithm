@@ -4,9 +4,7 @@ using namespace std;
 int dp[191'230];
 
 int solve(int num) {
-  if (num <= 1)
-    return 1;
-  else if (dp[num] == -1)
+  if (dp[num] == -1)
     return dp[num] = (solve(num - 1) + solve(num - 2)) % 1'000'000'007;
   return dp[num];
 }
