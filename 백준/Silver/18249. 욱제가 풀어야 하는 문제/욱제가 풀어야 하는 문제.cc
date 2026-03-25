@@ -1,27 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dp[191'230];
-
-int solve(int num) {
-  if (dp[num] == -1)
-    return dp[num] = (solve(num - 1) + solve(num - 2)) % 1'000'000'007;
-  return dp[num];
-}
-
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
+  int dp[191'230];
   fill(dp, dp + 191'230, -1);
   dp[0] = dp[1] = 1;
+  for (int i = 2; i < 191'230; i++)
+    dp[i] = (dp[i - 1] + dp[i - 2]) % 1'000'000'007;
 
   int T;
   cin >> T;
   while (T--) {
     int N;
     cin >> N;
-    cout << solve(N) << '\n';
+    cout << dp[N] << '\n';
   }
   return 0;
 }
