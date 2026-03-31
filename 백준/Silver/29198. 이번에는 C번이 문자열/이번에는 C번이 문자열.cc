@@ -11,14 +11,15 @@ int main() {
   for (int i = 0; i < N; i++) cin >> s[i];
   sort(s, s + N);
 
-  vector<char> v(K * M);
+  int cnt[26];
   for (int i = 0; i < K; i++) {
-    for (int j = 0; j < M; j++) v[i * M + j] = s[i][j];
+    for (int j = 0; j < M; j++) cnt[s[i][j] - 'A']++;
   }
-  sort(v.begin(), v.end());
 
-  for (int i = 0; i < v.size(); i++) {
-    cout << v[i];
+  for (int i = 0; i < 26; i++) {
+    for (int j = 0; j < cnt[i]; j++) {
+      cout << (char)('A' + i);
+    }
   }
   return 0;
 }
