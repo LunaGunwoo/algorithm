@@ -8,7 +8,10 @@ int main() {
   int N, M, K;
   string s[301];
   cin >> N >> M >> K;
-  for (int i = 0; i < N; i++) cin >> s[i];
+  for (int i = 0; i < N; i++) {
+    cin >> s[i];
+    sort(s[i].begin(), s[i].end());
+  }
   sort(s, s + N);
 
   int cnt[26];
